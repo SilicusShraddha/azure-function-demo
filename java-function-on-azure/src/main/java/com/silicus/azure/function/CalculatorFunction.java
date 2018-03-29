@@ -21,7 +21,7 @@ public class CalculatorFunction
         @FunctionName("calulatorFunction")
         public HttpResponseMessage<String> calulatorFunction(@HttpTrigger(name = "req", methods = {"get", "post"}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
                 final ExecutionContext context) {
-            context.getLogger().info("Java HTTP trigger processed a request.");
+            context.getLogger().info("Java HTTP trigger processed a request.The current instance is: "+instanceCounter);
 
             // Parse query parameter
             String query = request.getQueryParameters().get("firstNumAsString");
@@ -37,7 +37,6 @@ public class CalculatorFunction
             	int firstNum = Integer.parseInt(firstNumAsString);
             	int secondNum = Integer.parseInt(secondNumAsString);
             	Calculator caluator = new Calculator();
-            	context.getLogger().info("The current instance is: "+instanceCounter);
                 return request.createResponse(200, "The summation is: "+caluator.add(firstNum, secondNum));
             }
         }
