@@ -23,13 +23,14 @@ public class CalculatorFunction
             
             String query1 = request.getQueryParameters().get("name1");
             String name = request.getBody().orElse(query);
+            String name1 = request.getBody().orElse(query1);
             
 
             if (name == null) {
                 return request.createResponse(400, "Please pass a name on the query string or in the request body");
             } else {
             	Calculator cal = new Calculator();
-                return request.createResponse(200, query1+"***"+ cal.echoWord(name));
+                return request.createResponse(200, name1+"***"+ cal.echoWord(name));
             }
         }
   
