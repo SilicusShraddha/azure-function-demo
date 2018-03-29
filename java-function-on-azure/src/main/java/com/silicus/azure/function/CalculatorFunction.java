@@ -12,6 +12,11 @@ import com.silicus.azure.Calculator;
 
 public class CalculatorFunction 
 {
+	private static int instanceCounter;
+	
+	public CalculatorFunction() {
+		instanceCounter++;
+	}
    
         @FunctionName("calulatorFunction")
         public HttpResponseMessage<String> calulatorFunction(@HttpTrigger(name = "req", methods = {"get", "post"}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
@@ -32,7 +37,7 @@ public class CalculatorFunction
             	int firstNum = Integer.parseInt(firstNumAsString);
             	int secondNum = Integer.parseInt(secondNumAsString);
             	Calculator caluator = new Calculator();
-                return request.createResponse(200, "The summation is: "+caluator.add(firstNum, secondNum));
+                return request.createResponse(200, "The current instance is: "+instanceCounter+" and The summation is: "+caluator.add(firstNum, secondNum));
             }
         }
   
