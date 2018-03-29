@@ -30,7 +30,7 @@ public class CalculatorFunction
                 return request.createResponse(400, "Please pass a name on the query string or in the request body");
             } else {
             	Calculator cal = new Calculator();
-                return request.createResponse(200, name1+"***");
+                return request.createResponse(200, name+"***"+name1);
             }
         }
   
