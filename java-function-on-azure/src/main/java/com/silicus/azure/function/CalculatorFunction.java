@@ -19,18 +19,20 @@ public class CalculatorFunction
             context.getLogger().info("Java HTTP trigger processed a request.");
 
             // Parse query parameter
-            String query = request.getQueryParameters().get("name");
+            String query = request.getQueryParameters().get("firstNumAsString");
+            String firstNumAsString = request.getBody().orElse(query);
             
-            String query1 = request.getQueryParameters().get("name1");
-            String name = request.getBody().orElse(query);
-            String name1 = request.getBody().orElse(query1);
+            String query1 = request.getQueryParameters().get("secondNumAsString");
+            String secondNumAsString = request.getBody().orElse(query1);
             
 
-            if (name == null) {
+            if (firstNumAsString == null || secondNumAsString==null) {
                 return request.createResponse(400, "Please pass a name on the query string or in the request body");
             } else {
-            	Calculator cal = new Calculator();
-                return request.createResponse(200, name+"***"+name1);
+            	int firstNum = Integer.parseInt(firstNumAsString);
+            	int secondNum = Integer.parseInt(secondNumAsString);
+            	Calculator caluator = new Calculator();
+                return request.createResponse(200, "The summation is: "+caluator.add(firstNum, secondNum));
             }
         }
   
