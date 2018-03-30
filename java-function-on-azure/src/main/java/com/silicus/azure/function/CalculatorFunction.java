@@ -19,7 +19,7 @@ public class CalculatorFunction
 	}
    
         @FunctionName("calulatoFunction")
-        public HttpResponseMessage<String> calulatorFunction(@HttpTrigger(name = "req", methods = {"get"}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+        public HttpResponseMessage<String> calulatorFunction(@HttpTrigger(name = "req", methods = {"get", "post"}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
                 final ExecutionContext context) {
             context.getLogger().info("Java HTTP trigger processed a request.The current instance is: "+instanceCounter);
 

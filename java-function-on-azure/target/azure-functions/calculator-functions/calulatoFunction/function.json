@@ -6,7 +6,7 @@
     "name" : "req",
     "direction" : "in",
     "authLevel" : "anonymous",
-    "methods" : [ "get" ]
+    "methods" : [ "get", "post" ]
   }, {
     "type" : "http",
     "name" : "$return",
