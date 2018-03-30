@@ -37,9 +37,9 @@ public class CalculatorFunction
             	int firstNum = Integer.parseInt(firstNumAsString);
             	int secondNum = Integer.parseInt(secondNumAsString);
             	Calculator caluator = new Calculator();
-                return request.createResponse(200, "The summation is: "+caluator.add(firstNum, secondNum));
+                return request.createResponse(200, "The final summation is: "+caluator.add(firstNum, secondNum));
             }
         }
-  
+       
 }
    
