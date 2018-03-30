@@ -1,0 +1,16 @@
+{
+  "scriptFile" : "..\\java-function-on-azure-0.0.1-SNAPSHOT.jar",
+  "entryPoint" : "com.silicus.azure.function.CalculatorFunction.calulatorFunction",
+  "bindings" : [ {
+    "type" : "httpTrigger",
+    "name" : "req",
+    "direction" : "in",
+    "authLevel" : "anonymous",
+    "methods" : [ "get" ]
+  }, {
+    "type" : "http",
+    "name" : "$return",
+    "direction" : "out"
+  } ],
+  "disabled" : false
+}
